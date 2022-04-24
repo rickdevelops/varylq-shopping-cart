@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 export default function Cartcard() {
   const cart = useSelector((state) => state.cart);
   const total = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
-  const shippingCost = total > 1000 ? 0 : 200;
+  const shippingCost = total > 1000 || total === 0 ? 0 : 200;
   const grandTotal = total + shippingCost;
   return (
     <Card sx={{ maxWidth: 345, backgroundColor: "#f0f9f4" }}>
@@ -29,20 +29,24 @@ export default function Cartcard() {
               ₹&nbsp;{total.toFixed(2)}
             </Typography>
           </Grid>
-          <Grid item xs={6}>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Shipping
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {shippingCost.toFixed(2) > 0 ? (
-                <span>₹&nbsp;{shippingCost.toFixed(2)}</span>
-              ) : (
-                "Free"
-              )}
-            </Typography>
-          </Grid>
+          {total !== 0 && (
+            <>
+              <Grid item xs={6}>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Shipping
+                </Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {shippingCost.toFixed(2) > 0 ? (
+                    <span>₹&nbsp;{shippingCost.toFixed(2)}</span>
+                  ) : (
+                    "Free"
+                  )}
+                </Typography>
+              </Grid>
+            </>
+          )}
           <div className="total-container">
             <Grid item xs={6}>
               <Typography variant="body2" component="h6">
