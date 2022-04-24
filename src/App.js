@@ -1,9 +1,9 @@
 import Header from "./Components/Header";
 import Subheader from "./Components/Subheader";
-import Shopping from "./Components/Shopping";
-import Checkout from "./Components/Checkout";
 import Footer from "./Components/Footer";
 import "./App.css";
+import BasicTable from "./Components/BasicTable";
+import Cartcard from "./Components/Cartcard";
 
 function App() {
   return (
@@ -17,10 +17,12 @@ function App() {
         <h1> Shopping Cart</h1>
         <div className="shopping-content">
           <div className="shopping-content-left">
-            <Shopping />
+            {/* <Shopping /> */}
+            <BasicTable />
           </div>
           <div className="shopping-content-right">
-            <Checkout />
+            {/* <Checkout /> */}
+            <Cartcard />
           </div>
         </div>
       </div>

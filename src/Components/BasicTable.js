@@ -17,7 +17,6 @@ import {
 
 export default function BasicTable() {
   const dataObj = useSelector((state) => state.cart);
-  console.log(dataObj);
   const dispatch = useDispatch();
   const incrementQuantity = (id) => {
     dispatch(incrementQuantityById(id));
@@ -47,14 +46,13 @@ export default function BasicTable() {
               key={row.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              {/* <TableCell></TableCell> */}
               <TableCell
                 component="th"
                 scope="row"
                 className="product-image"
                 align="right"
               >
-                <img src="https://via.placeholder.com/150" alt="product" />
+                <img src={row.img} alt="product" width="156" height="150" />
               </TableCell>
               <TableCell align="left">{row.product}</TableCell>
               <TableCell align="right">₹&nbsp;{row.price.toFixed(2)}</TableCell>

@@ -51,17 +51,14 @@ export default function Cartcard() {
             </Grid>
             <Grid item xs={6}>
               <Typography variant="body2" color="textSecondary" component="p">
-                <b>&nbsp;&nbsp;&nbsp;&nbsp;₹&nbsp;{grandTotal.toFixed(2)} </b>
+                <b className="grandtotal-margin">{grandTotal.toFixed(2)} </b>
               </Typography>
             </Grid>
           </div>
         </Grid>
       </CardContent>
       <CardActions>
-        <Button
-          className="buy-button"
-          sx={{ backgroundColor: "#087c3c", color: "white" }}
-        >
+        <Button className="buy-button">
           <Typography variant="body2" component="h3">
             <b> Buy</b>
           </Typography>
